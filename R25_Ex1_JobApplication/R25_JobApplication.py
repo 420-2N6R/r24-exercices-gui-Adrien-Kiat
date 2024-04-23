@@ -199,9 +199,13 @@ class App(ctk.CTk):
 
 
     # Voir ÉNONCÉ
-    def resumer(self):
-        pass
-
+    def resumer(self,btn_resumer):
+        self.btn_resumer = ctk.CTkButton(text="Résumé", command=self.resumer)
+        self.txt_resume = ctk.CTkTextbox()
+        self.txt_resume.delete
+        resume = self.creer_resume()
+        self.txt_resume.insert(resume)
+        
     # Voir ÉNONCÉ
 
     def creer_resume(self):
