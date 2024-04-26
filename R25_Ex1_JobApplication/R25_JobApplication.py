@@ -199,17 +199,23 @@ class App(ctk.CTk):
 
 
     # Voir ÉNONCÉ
-    def resumer(self,btn_resumer):
-        self.btn_resumer = ctk.CTkButton(text="Résumé", command=self.resumer)
-        self.txt_resume = ctk.CTkTextbox()
-        self.txt_resume.delete
-        resume = self.creer_resume()
-        self.txt_resume.insert(resume)
+    def resumer(self,):
+        button = ctk.CTkButton(command=resumer)
+        self.txt_resume.delete("0,0","end")
+        resume= self.creer_resume()
+        self.txt_resume.insert("0,0",resume)
         
     # Voir ÉNONCÉ
 
     def creer_resume(self):
-        pass
+        cpt = 0
+        point = self.cbo_interet.get()
+        for box in self.list_checkbox:
+            if box.get() == 1:
+                cpt+=1
+        nom = self.ent_nom.get()
+        return (f"Salut {nom} \n Merci de votre application chez nous.\n Vous avez de l'expérience dans {point} points sur 12 possibles\n L'intérêt principal mentionné étant:{nom} \n Nous vons donnerons une réponse sous peu.")
+
 
 if __name__ == "__main__":
     app = App()
